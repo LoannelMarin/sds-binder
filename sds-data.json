@@ -1,0 +1,135 @@
+{
+  "lastUpdated": "2026-07-06",
+  "records": [
+    {
+      "chemical": "Path Away",
+      "vendor": "ECOLAB",
+      "purpose": "Drain Cleaner",
+      "area": "Engineering / Kitchen",
+      "sdsUrl": "",
+      "revisionDate": "",
+      "status": "SDS Link Missing",
+      "notes": "Add official SDS PDF link."
+    },
+    {
+      "chemical": "Greasestrip Plus",
+      "vendor": "ECOLAB",
+      "purpose": "Degreaser",
+      "area": "Kitchen",
+      "sdsUrl": "https://assets.pim.ecolab.com/media/Original/10087/US-Z8-921481-GREASESTRIP%20PLUS%20(921481).pdf",
+      "revisionDate": "",
+      "status": "Review Date",
+      "notes": "Verify this is the current SDS from vendor."
+    },
+    {
+      "chemical": "Ecotemp Ultra Dry",
+      "vendor": "ECOLAB",
+      "purpose": "Rinse Additive",
+      "area": "Dish Area",
+      "sdsUrl": "",
+      "revisionDate": "",
+      "status": "SDS Link Missing",
+      "notes": "Add official SDS PDF link."
+    },
+    {
+      "chemical": "Phantastik / Phantastics",
+      "vendor": "ECOLAB",
+      "purpose": "Manual Warewashing Detergent",
+      "area": "Kitchen",
+      "sdsUrl": "",
+      "revisionDate": "",
+      "status": "SDS Link Missing",
+      "notes": "Confirm exact product name."
+    },
+    {
+      "chemical": "Oasis 146 Liquid Sanitizer",
+      "vendor": "ECOLAB",
+      "purpose": "Sanitizer",
+      "area": "Kitchen / Housekeeping",
+      "sdsUrl": "",
+      "revisionDate": "",
+      "status": "SDS Link Missing",
+      "notes": "Add official SDS PDF link."
+    },
+    {
+      "chemical": "TruPower Dishmachine Detergent All Purpose",
+      "vendor": "ECOLAB",
+      "purpose": "Dishmachine Detergent",
+      "area": "Dish Area",
+      "sdsUrl": "",
+      "revisionDate": "",
+      "status": "SDS Link Missing",
+      "notes": "Add official SDS PDF link."
+    },
+    {
+      "chemical": "Jet-Dry",
+      "vendor": "ECOLAB",
+      "purpose": "Rinse Additive",
+      "area": "Dish Area",
+      "sdsUrl": "",
+      "revisionDate": "",
+      "status": "SDS Link Missing",
+      "notes": "Add official SDS PDF link."
+    },
+    {
+      "chemical": "Advanced Antibacterial Hand Soap",
+      "vendor": "ECOLAB",
+      "purpose": "Hand Soap",
+      "area": "Public Areas / Back of House",
+      "sdsUrl": "",
+      "revisionDate": "",
+      "status": "SDS Link Missing",
+      "notes": "Add official SDS PDF link."
+    },
+    {
+      "chemical": "Clear Coffee",
+      "vendor": "URNEX",
+      "purpose": "Coffee Cleaner",
+      "area": "Bar / Coffee Area",
+      "sdsUrl": "",
+      "revisionDate": "",
+      "status": "SDS Link Missing",
+      "notes": "Add official SDS PDF link."
+    },
+    {
+      "chemical": "Scotchgard",
+      "vendor": "3M",
+      "purpose": "Fabric and Carpet Cleaner",
+      "area": "Housekeeping",
+      "sdsUrl": "",
+      "revisionDate": "",
+      "status": "SDS Link Missing",
+      "notes": "Confirm exact 3M Scotchgard product."
+    },
+    {
+      "chemical": "URN and Brewer Cleaner",
+      "vendor": "URNEX",
+      "purpose": "Coffee System Cleaner",
+      "area": "Bar / Coffee Area",
+      "sdsUrl": "",
+      "revisionDate": "",
+      "status": "SDS Link Missing",
+      "notes": "Confirm exact product spelling."
+    },
+    {
+      "chemical": "Dip-It",
+      "vendor": "ECOLAB",
+      "purpose": "All Purpose Cleaner",
+      "area": "Kitchen / Coffee Area",
+      "sdsUrl": "",
+      "revisionDate": "",
+      "status": "SDS Link Missing",
+      "notes": "Add official SDS PDF link."
+    },
+    {
+      "chemical": "Softsoap",
+      "vendor": "Colgate-Palmolive",
+      "purpose": "Liquid Hand Soap",
+      "area": "Public Areas / Back of House",
+      "sdsUrl": "",
+      "revisionDate": "",
+      "status": "SDS Link Missing",
+      "notes": "Confirm exact formula/fragrance."
+    }
+  ]
+}
