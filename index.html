@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aloft Orlando Downtown - SDS Virtual Binder</title>
+  <style>
+    :root {
+      --bg: #f4f7f7;
+      --card: #ffffff;
+      --text: #10201f;
+      --muted: #62716f;
+      --accent: #083A39;
+      --accent2: #0B5150;
+      --border: #d8e3e1;
+      --warning-bg: #fff7e1;
+      --warning: #7c5200;
+      --ok: #08724a;
+      --missing: #a42121;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: white;
+      padding: 28px 18px;
+    }
+
+    .wrap {
+      max-width: 1150px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(1.6rem, 4vw, 2.45rem);
+      line-height: 1.15;
+    }
+
+    .subtitle {
+      margin: 0;
+      color: rgba(255,255,255,.92);
+      line-height: 1.45;
+    }
+
+    main { padding: 20px 18px 44px; }
+
+    .panel {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,.05);
+      margin-bottom: 16px;
+    }
+
+    .controls {
+      display: grid;
+      grid-template-columns: minmax(240px, 1fr) 220px 180px 140px;
+      gap: 12px;
+      align-items: end;
+    }
+
+    label {
+      display: block;
+      font-size: .88rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 12px 13px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      font-size: 1rem;
+      background: white;
+      color: var(--text);
+    }
+
+    button, .btn {
+      border: 0;
+      border-radius: 10px;
+      background: var(--accent);
+      color: white;
+      font-weight: 700;
+      padding: 12px 14px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+    }
+
+    button:hover, .btn:hover { background: var(--accent2); }
+
+    .btn.secondary {
+      background: #e9efef;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn.disabled {
+      background: #e0e5e5;
+      color: #6b7473;
+      pointer-events: none;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      color: var(--muted);
+      font-size: .95rem;
+      margin-top: 11px;
+    }
+.grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 14px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 15px;
+      min-height: 230px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      box-shadow: 0 6px 18px rgba(0,0,0,.045);
+    }
+
+    .row-top {
+      display: flex;
+      gap: 9px;
+      align-items: flex-start;
+    }
+
+    .num {
+      background: var(--accent);
+      color: white;
+      font-weight: 800;
+      border-radius: 999px;
+      min-width: 44px;
+      text-align: center;
+      padding: 6px 8px;
+      line-height: 1;
+      font-size: .92rem;
+    }
+
+    .chem-name {
+      font-size: 1.1rem;
+      font-weight: 800;
+      margin: 0;
+      line-height: 1.25;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .pill {
+      font-size: .78rem;
+      padding: 5px 8px;
+      border-radius: 999px;
+      background: #edf3f2;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .details {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.45;
+      flex: 1;
+      word-break: break-word;
+    }
+
+    .available { color: var(--ok); font-weight: 800; }
+    .missing { color: var(--missing); font-weight: 800; }
+
+    .actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: auto;
+    }
+
+    .empty {
+      text-align: center;
+      padding: 28px;
+      color: var(--muted);
+    }
+
+    footer {
+      color: var(--muted);
+      font-size: .9rem;
+      padding-top: 10px;
+      line-height: 1.45;
+    }
+
+    @media (max-width: 850px) {
+      .controls { grid-template-columns: 1fr; }
+    }
+
+    @media print {
+      header, .controls, .actions, footer { display: none !important; }
+      body { background: white; }
+      .panel, .card { box-shadow: none; }
+      .card { break-inside: avoid; min-height: auto; }
+      .grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <h1>Aloft Orlando Downtown - SDS Virtual Binder</h1>
+      <p class="subtitle">Search by chemical name, SDS number, vendor, purpose, or original PDF file name. Open each SDS directly from the binder.</p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="panel">
+      <div class="controls">
+        <div>
+          <label for="search">Search SDS</label>
+          <input id="search" type="search" placeholder="Example: 32, Ecolab, Greasestrip, WD-40..." autocomplete="off" />
+        </div>
+
+        <div>
+          <label for="vendor">Vendor</label>
+          <select id="vendor">
+            <option value="">All vendors</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="status">Status</label>
+          <select id="status">
+            <option value="">All statuses</option>
+            <option value="Available">Available</option>
+            <option value="Missing PDF">Missing PDF</option>
+          </select>
+        </div>
+
+        <div>
+          <label>&nbsp;</label>
+          <button id="clearBtn" type="button">Clear</button>
+        </div>
+      </div>
+
+      <div class="meta">
+        <span id="count">Loading SDS records...</span>
+        <span>Last data update: <strong id="lastUpdated">—</strong></span>
+      </div>
+    </section>
+
+<section id="results" class="grid" aria-live="polite"></section>
+
+    <footer>
+      This page is a virtual SDS binder. Verify that each PDF opens correctly from a phone before printing and posting the QR code.
+    </footer>
+  </main>
+
+  <script>
+    let records = [];
+    const $ = (id) => document.getElementById(id);
+
+    const normalize = (value) => String(value || "").toLowerCase().trim();
+
+    function safeText(value, fallback = "N/A") {
+      return value && String(value).trim() ? String(value).trim() : fallback;
+    }
+
+    function uniqueValues(items, key) {
+      return [...new Set(items.map(item => item[key]).filter(Boolean))].sort((a,b) => a.localeCompare(b));
+    }
+
+    function populateVendors() {
+      const select = $("vendor");
+      uniqueValues(records, "vendor").forEach(vendor => {
+        const option = document.createElement("option");
+        option.value = vendor;
+        option.textContent = vendor;
+        select.appendChild(option);
+      });
+    }
+
+    function filterRecords() {
+      const q = normalize($("search").value);
+      const vendor = $("vendor").value;
+      const status = $("status").value;
+
+      return records.filter(item => {
+        const haystack = normalize([
+          item.number,
+          item.chemical,
+          item.vendor,
+          item.purpose,
+          item.status,
+          item.notes,
+          item.originalFileName
+        ].join(" "));
+
+        return (!q || haystack.includes(q))
+          && (!vendor || item.vendor === vendor)
+          && (!status || item.status === status);
+      });
+    }
+
+    function render() {
+      const results = $("results");
+      const filtered = filterRecords();
+      results.innerHTML = "";
+      $("count").textContent = `${filtered.length} of ${records.length} SDS records shown`;
+
+      if (!filtered.length) {
+        results.innerHTML = `<div class="panel empty">No SDS records matched your search.</div>`;
+        return;
+      }
+
+      filtered.forEach(item => {
+        const card = document.createElement("article");
+        card.className = "card";
+        const hasUrl = item.sdsUrl && /^sds\/.+\.pdf$/i.test(item.sdsUrl);
+        const statusClass = item.status === "Available" ? "available" : "missing";
+
+        card.innerHTML = `
+          <div class="row-top">
+            <div class="num">#${safeText(item.number)}</div>
+            <h2 class="chem-name">${safeText(item.chemical)}</h2>
+          </div>
+
+          <div class="pill-row">
+            <span class="pill">${safeText(item.vendor, "Vendor not listed")}</span>
+            <span class="pill">${safeText(item.purpose, "Purpose not listed")}</span>
+          </div>
+
+          <p class="details">
+            <strong>Status:</strong> <span class="${statusClass}">${safeText(item.status)}</span><br>
+            <strong>Revision Date:</strong> ${safeText(item.revisionDate, "Not listed")}<br>
+            <strong>Original File:</strong> ${safeText(item.originalFileName, "No PDF matched")}<br>
+            <strong>Notes:</strong> ${safeText(item.notes, "No notes")}
+          </p>
+
+          <div class="actions">
+            ${hasUrl
+              ? `<a class="btn" href="${item.sdsUrl}" target="_blank" rel="noopener">Open SDS</a>`
+              : `<span class="btn disabled">PDF Missing</span>`
+            }
+          </div>
+        `;
+
+        results.appendChild(card);
+      });
+    }
+
+    async function loadData() {
+      try {
+        const response = await fetch("sds-data.json", { cache: "no-store" });
+        if (!response.ok) throw new Error("Unable to load sds-data.json");
+        const data = await response.json();
+
+        records = data.records || [];
+        $("lastUpdated").textContent = data.lastUpdated || "Not listed";
+
+        populateVendors();
+        render();
+      } catch (error) {
+        $("count").textContent = "Error loading SDS records.";
+        $("results").innerHTML = `
+          <div class="panel empty">
+            Could not load <strong>sds-data.json</strong>. Confirm that index.html and sds-data.json are in the same GitHub repository folder.
+          </div>
+        `;
+        console.error(error);
+      }
+    }
+
+    $("search").addEventListener("input", render);
+    $("vendor").addEventListener("change", render);
+    $("status").addEventListener("change", render);
+    $("clearBtn").addEventListener("click", () => {
+      $("search").value = "";
+      $("vendor").value = "";
+      $("status").value = "";
+      render();
+    });
+
+    loadData();
+  </script>
+</body>
+</html>
