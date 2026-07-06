@@ -1,53 +1,49 @@
-# Hotel SDS Virtual Binder - GitHub Pages
+# Aloft Orlando Downtown - SDS Virtual Binder
 
-This folder is a free static SDS virtual binder.
+This GitHub Pages package was generated from the uploaded SDS Master List.
 
-## Files
+## Included
 
-- `index.html` = the public SDS search page.
-- `sds-data.json` = the SDS database.
-- `.nojekyll` = tells GitHub Pages to publish the files as-is.
+- `index.html` - public SDS search page
+- `sds-data.json` - database with 90 SDS records
+- `expected-sds-pdf-filenames.csv` - list of expected PDF names/paths
+- `.nojekyll` - allows GitHub Pages to publish files as-is
+- `sds/` - folder where SDS PDF files should be uploaded
 
-## How to publish on GitHub Pages
+## Important next step
 
-1. Create a GitHub account or use an existing one.
-2. Create a new public repository, for example: `sds-binder`.
-3. Upload these files:
-   - `index.html`
-   - `sds-data.json`
-   - `.nojekyll`
-4. Go to the repository settings.
-5. Go to **Pages**.
-6. Under **Build and deployment**, select:
+The SDS links in `sds-data.json` point to files inside the `sds/` folder.
+
+Example:
+
+```text
+sds/greasestrip-plus.pdf
+```
+
+That means the matching PDF must be uploaded to GitHub with that exact name.
+
+Use `expected-sds-pdf-filenames.csv` to rename/match your PDF files.
+
+## GitHub Pages setup
+
+1. Upload all files/folders to your `sds-binder` repository.
+2. Go to repository **Settings**.
+3. Go to **Pages**.
+4. Under **Build and deployment**:
    - Source: `Deploy from a branch`
    - Branch: `main`
    - Folder: `/root`
-7. Save.
-8. GitHub will give you a URL like:
-   - `https://YOUR-USERNAME.github.io/sds-binder/`
-9. Create a QR code that points to that URL.
+5. Save.
+6. Your site should publish at a URL like:
 
-## How to update SDS records
-
-Open `sds-data.json` and edit the records.
-
-Example record:
-
-```json
-{
-  "chemical": "Greasestrip Plus",
-  "vendor": "ECOLAB",
-  "purpose": "Degreaser",
-  "area": "Kitchen",
-  "sdsUrl": "https://example.com/sds.pdf",
-  "revisionDate": "2026-01-01",
-  "status": "Active",
-  "notes": "Official vendor SDS."
-}
+```text
+https://loannelmarin.github.io/sds-binder/
 ```
 
-Important:
-- Use official SDS links from vendors whenever possible.
-- If you host PDFs in Google Drive, make sure the file is shared as "Anyone with the link can view."
-- Verify every link from a phone before printing the QR.
-- Keep a printed or offline backup SDS binder for emergencies.
+## QR Code
+
+Create the QR code pointing to the GitHub Pages URL above.
+
+## Compliance backup
+
+Keep a printed or offline backup available in case internet, Wi-Fi, QR scanning, or GitHub Pages is unavailable.

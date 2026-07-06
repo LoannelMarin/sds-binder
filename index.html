@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Hotel SDS Virtual Binder</title>
+  <title>Aloft Orlando Downtown - SDS Virtual Binder</title>
   <style>
     :root {
       --bg: #f5f7f8;
@@ -34,7 +34,7 @@
     }
 
     .wrap {
-      max-width: 1100px;
+      max-width: 1120px;
       margin: 0 auto;
     }
 
@@ -45,7 +45,7 @@
 
     .subtitle {
       margin: 0;
-      color: rgba(255,255,255,.9);
+      color: rgba(255,255,255,.92);
       line-height: 1.4;
     }
 
@@ -64,7 +64,7 @@
 
     .controls {
       display: grid;
-      grid-template-columns: 1fr 190px 160px;
+      grid-template-columns: 1fr 210px 160px;
       gap: 12px;
       align-items: end;
     }
@@ -116,7 +116,7 @@
     .meta {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 10px 18px;
       color: var(--muted);
       font-size: .95rem;
       margin-top: 10px;
@@ -124,7 +124,7 @@
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(295px, 1fr));
       gap: 14px;
     }
 
@@ -215,8 +215,8 @@
 <body>
   <header>
     <div class="wrap">
-      <h1>Hotel SDS Virtual Binder</h1>
-      <p class="subtitle">Search chemicals by name, vendor, purpose, or area. Open the SDS PDF from any phone, tablet, or workstation.</p>
+      <h1>Aloft Orlando Downtown - SDS Virtual Binder</h1>
+      <p class="subtitle">Search by chemical name, vendor, purpose, or status. Open the SDS PDF from any phone, tablet, or workstation.</p>
     </div>
   </header>
 
@@ -225,13 +225,13 @@
       <div class="controls">
         <div>
           <label for="search">Search SDS</label>
-          <input id="search" type="search" placeholder="Example: Greasestrip, Ecolab, sanitizer, laundry..." autocomplete="off" />
+          <input id="search" type="search" placeholder="Example: Ecolab, degreaser, sanitizer, WD-40..." autocomplete="off" />
         </div>
 
         <div>
-          <label for="area">Area</label>
-          <select id="area">
-            <option value="">All areas</option>
+          <label for="vendor">Vendor</label>
+          <select id="vendor">
+            <option value="">All vendors</option>
           </select>
         </div>
 
@@ -277,23 +277,23 @@
       return value && String(value).trim() ? String(value).trim() : fallback;
     }
 
-    function uniqueAreas(items) {
-      return [...new Set(items.map(item => item.area).filter(Boolean))].sort();
+    function uniqueVendors(items) {
+      return [...new Set(items.map(item => item.vendor).filter(Boolean))].sort();
     }
 
-    function populateAreas() {
-      const select = $("area");
-      uniqueAreas(records).forEach(area => {
+    function populateVendors() {
+      const select = $("vendor");
+      uniqueVendors(records).forEach(vendor => {
         const option = document.createElement("option");
-        option.value = area;
-        option.textContent = area;
+        option.value = vendor;
+        option.textContent = vendor;
         select.appendChild(option);
       });
     }
 
     function filterRecords() {
       const q = normalize($("search").value);
-      const area = $("area").value;
+      const vendor = $("vendor").value;
 
       return records.filter(item => {
         const haystack = normalize([
@@ -306,9 +306,9 @@
         ].join(" "));
 
         const matchesSearch = !q || haystack.includes(q);
-        const matchesArea = !area || item.area === area;
+        const matchesVendor = !vendor || item.vendor === vendor;
 
-        return matchesSearch && matchesArea;
+        return matchesSearch && matchesVendor;
       });
     }
 
@@ -329,18 +329,17 @@
         card.className = "card";
 
         const sdsUrl = safeText(item.sdsUrl, "");
-        const hasUrl = sdsUrl && /^https?:\/\//i.test(sdsUrl);
+        const hasUrl = sdsUrl && (sdsUrl.startsWith("sds/") || /^https?:\/\//i.test(sdsUrl));
 
         card.innerHTML = `
           <h2 class="chem-name">${safeText(item.chemical)}</h2>
 
           <div class="pill-row">
             <span class="pill">${safeText(item.vendor, "Vendor not listed")}</span>
-            <span class="pill">${safeText(item.area, "Area not listed")}</span>
+            <span class="pill">${safeText(item.purpose, "Purpose not listed")}</span>
           </div>
 
           <p class="details">
-            <strong>Purpose:</strong> ${safeText(item.purpose)}<br>
             <strong>Revision Date:</strong> ${safeText(item.revisionDate, "Not listed")}<br>
             <strong>Status:</strong> <span class="${statusClass(item.status)}">${safeText(item.status, "Active")}</span><br>
             <strong>Notes:</strong> ${safeText(item.notes, "No notes")}
@@ -369,7 +368,7 @@
         lastUpdated = data.lastUpdated || "";
         $("lastUpdated").textContent = lastUpdated || "Not listed";
 
-        populateAreas();
+        populateVendors();
         render();
       } catch (error) {
         $("count").textContent = "Error loading SDS records.";
@@ -383,10 +382,10 @@
     }
 
     $("search").addEventListener("input", render);
-    $("area").addEventListener("change", render);
+    $("vendor").addEventListener("change", render);
     $("clearBtn").addEventListener("click", () => {
       $("search").value = "";
-      $("area").value = "";
+      $("vendor").value = "";
       render();
     });
 
